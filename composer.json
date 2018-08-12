@@ -1,0 +1,29 @@
+{
+    "name": "dmitrymomot/php-test",
+    "description": "Task #3",
+    "type": "library",
+    "require": {
+        "php": "^7.1",
+        "guzzlehttp/guzzle": "~5.3",
+        "psr/cache": "^1.0@dev",
+        "psr/log": "^1.0@dev",
+        "nesbot/carbon": "*"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^7.4@dev"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Dmitry Momot",
+            "email": "mail@dmomot.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "autoload": {
+        "psr-4": {
+            "Task3\\": "src/task_3"
+        },
+        "classmap": [ "tests/" ]
+    }
+}
