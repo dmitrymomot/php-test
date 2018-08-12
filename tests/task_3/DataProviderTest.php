@@ -2,6 +2,7 @@
 
 use Task3\DataProvider;
 use Task3\DataInterface;
+use Task3\CoundNotGetDataException;
 use PHPUnit\Framework\TestCase;
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
@@ -39,5 +40,19 @@ final class DataProviderTest extends TestCase
 
         $provider = new DataProvider($client, 'http://testurl.local');
         $this->assertEquals($expectedResponse, $provider->get(['opt1' => 'test value']));
+    }
+
+    public function testCouldNotGetData()
+    {
+        $this->expectException(CoundNotGetDataException::class);
+
+        $responseMock = $this->createMock(ResponseInterface::class);
+        $responseMock->method('getStatusCode')->willReturn(500);
+
+        $client = $this->createMock(ClientInterface::class);
+        $client->method('createRequest')->willReturn($responseMock);
+
+        $provider = new DataProvider($client, 'http://testurl.local');
+        $provider->get(['opt1' => 'test value']);
     }
 }
