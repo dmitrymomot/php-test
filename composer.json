@@ -22,7 +22,8 @@
     "minimum-stability": "dev",
     "autoload": {
         "psr-4": {
-            "Task3\\": "src/task_3"
+            "Task3\\": "src/task_3",
+            "Task4\\": "src/task_4"
         },
         "classmap": [ "tests/" ]
     }
