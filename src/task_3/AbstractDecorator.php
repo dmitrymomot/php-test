@@ -7,7 +7,7 @@ abstract class AbstractDecorator implements DataInterface
      *
      * @var DataInterface
      */
-    protected $_provider;
+    private $_provider;
 
     /**
      * @param DataInterface $provider
@@ -25,17 +25,5 @@ abstract class AbstractDecorator implements DataInterface
     protected function getProvider(): DataInterface
     {
         return $this->_provider;
-    }
-
-    /**
-     * Get some data
-     *
-     * @param array $opt
-     *
-     * @return array
-     */
-    public function get(array $opt): array
-    {
-        return $this->getProvider()->get($opt);
     }
 }
